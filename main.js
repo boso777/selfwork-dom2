@@ -17,11 +17,6 @@ btnCreate.addEventListener(`click`, ()=> {
         let date = new Date();
         let formatDate = date.toLocaleDateString()
     
-        //catturo i valori inseriti dall'utente e li inserisco in una variabile
-
-        let titleValue = elTitolo.value;
-        let descriptionValue = elDescription.value;
-   
         //creo gli elementi html che ospiteranno i valori inseriti dall'utente e li inserisco in una variabile
 
         let hTitle = document.createElement('h2')
@@ -30,8 +25,8 @@ btnCreate.addEventListener(`click`, ()=> {
 
         //associo all'inner html degli elementi creati in precedenza, il value inserito dall'utente catturato prima
 
-        hTitle.innerHTML = titleValue;
-        pDescription.innerHTML = descriptionValue;
+        hTitle.innerHTML = elTitolo.value;
+        pDescription.innerHTML = elDescription.value;
         pDate.innerHTML = formatDate;
 
         //inserisco gli elementi `riempiti` nel div wrapper 
