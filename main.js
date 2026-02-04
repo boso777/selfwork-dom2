@@ -1,17 +1,33 @@
-// Al click sul bottone, crea un articolo popolato dai valori prelevati dai due input
-
-// inserire nell’articolo anche la data di pubblicazione tramite questa istruzione → Date - JavaScript | MDN
-
-// let date = new Date();
-// let formatDate = date.toLocaleDateString()
-
-// EXTRA:
-// fai in modo che, cliccando sul bottone crea articolo, se titolo o paragrafo sono vuoti, esca un alert che informi l’utente del problema
-// fai in modo che, una volta creato l’articolo, gli input vengano puliti
+let elTitolo = document.getElementById(`title`);
+let elDescription = document.getElementById(`description`);
+let btnCreate = document.getElementById(`btnCreate`);
+let wrapper = document.getElementById(`wrapper`)
 
 
+btnCreate.addEventListener(`click`, ()=> {
+    if(elTitolo.value != "" && elDescription.value != ""){
 
-// Brainstorming
-// dovro sicuramente usare il metodo create new
-// i valori si potrebbero estrapolare da un oggetto, l'oggetto articolo
-// se faccio un articolo i campi di input si devono azzerare
+        let date = new Date();
+        let formatDate = date.toLocaleDateString()
+    
+        let titleValue = elTitolo.value;
+        let descriptionValue = elDescription.value;
+   
+        let hTitle = document.createElement('h2')
+        let pDescription = document.createElement(`p`)
+        let pDate = document.createElement(`p`)
+
+        hTitle.innerHTML = titleValue;
+        pDescription.innerHTML = descriptionValue;
+        pDate.innerHTML = formatDate;
+
+        wrapper.appendChild(hTitle)
+        wrapper.appendChild(pDescription)
+        wrapper.appendChild(pDate)
+
+        elTitolo.value = ``;
+        elDescription.value = ``;
+    }else{
+        alert(`Riempi tutti i campi richiesti|`);
+    }
+})
