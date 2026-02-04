@@ -46,5 +46,7 @@ btnCreate.addEventListener(`click`, ()=> {
         elDescription.value = ``;
     }else{
         alert(`Riempi tutti i campi richiesti|`);
+        elTitolo.value = ``;
+        elDescription.value = ``;
     }
 })
